@@ -29,4 +29,4 @@ cat /tmp/${COMPONENT}.json
 
 #This is to update the roboshop ansible inventory
 PUBLIC_IP_ADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
-echo "${PUBLIC_IP_ADDRESS}  APP=${COMPONENT}" >> ../inventory 
+echo "${PUBLIC_IP_ADDRESS}  APP=${COMPONENT}" >> ~/inventory 
