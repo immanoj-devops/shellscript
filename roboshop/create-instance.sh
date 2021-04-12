@@ -24,6 +24,6 @@ export COMPONENT
 envsubst < record.json > /tmp/${COMPONENT}.json
 cat record.json
 aws route53 change-resource-record-sets --hosted-zone-id Z0389593AKK6AGHKDTF2 --change-batch file:///tmp/${COMPONENT}.json
-record.json
+
 cat /tmp/${COMPONENT}.json
 
