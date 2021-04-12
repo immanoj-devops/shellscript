@@ -29,5 +29,5 @@ cat /tmp/${COMPONENT}.json
 
 #This is to update the roboshop ansible inventory
 sed -i -e "/${COMPONENT}/ d" ~/inventory
-PUBLIC_IP_ADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
+PUBLICIPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
 echo "${PUBLICIPADDRESS}  APP=${COMPONENT}" >> ~/inventory 
