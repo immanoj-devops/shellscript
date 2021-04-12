@@ -28,5 +28,6 @@ aws route53 change-resource-record-sets --hosted-zone-id Z0389593AKK6AGHKDTF2 --
 cat /tmp/${COMPONENT}.json
 
 #This is to update the roboshop ansible inventory
+sed -i -e "/${APP}/ d" ~/inventory 
 PUBLIC_IP_ADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
 echo "${PUBLIC_IP_ADDRESS}  APP=${COMPONENT}" >> ~/inventory 
